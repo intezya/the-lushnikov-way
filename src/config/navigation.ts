@@ -30,9 +30,9 @@ export const primaryNavItems: PrimaryNavItem[] = [
     icon: Building2,
   },
   {
-    label: "Рехабы",
+    label: "Центры помощи",
     path: "/rehabs",
-    description: "Каталог проверенных реабилитационных центров по всей России.",
+    description: "Каталог проверенных центров помощи по всей России.",
     icon: ShieldCheck,
   },
   {

@@ -49,10 +49,10 @@ const RehabsPage = () => {
           <div className="text-center mb-12">
             <p className="text-primary tracking-[0.2em] uppercase text-sm mb-3">Каталог</p>
             <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Проверенные <span className="gold-gradient">рехабы</span>
+              Проверенные <span className="gold-gradient">центры помощи</span>
             </h1>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Все реабилитационные центры прошли проверку и сертификацию Национального антинаркотического союза
+              Все центры помощи прошли проверку и сертификацию Национального антинаркотического союза
             </p>
           </div>
 

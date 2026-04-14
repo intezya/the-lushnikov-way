@@ -38,12 +38,12 @@ const RehabsPreviewSection = () => (
     <div className="container mx-auto px-4">
       <div className="section-fade-in">
         <div className="text-center mb-16">
-          <p className="text-primary tracking-[0.2em] uppercase text-sm mb-3">Проверенные центры</p>
+          <p className="text-primary tracking-[0.2em] uppercase text-sm mb-3">Каталог центров помощи</p>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Лучшие <span className="gold-gradient">рехабы</span> России
+            Лучшие <span className="gold-gradient">центры помощи</span> России
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Реабилитационные центры, прошедшие проверку и сертификацию Национального антинаркотического союза
+            Центры помощи, прошедшие проверку и сертификацию Национального антинаркотического союза
           </p>
           <div className="w-20 h-0.5 gold-line mx-auto mt-4" />
         </div>

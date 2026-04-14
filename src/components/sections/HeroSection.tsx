@@ -72,7 +72,7 @@ const HeroSection = () => {
                 className="border-primary/30 text-foreground hover:bg-primary/10 font-semibold text-base px-8"
                 onClick={() => navigate('/rehabs')}
               >
-                Проверенные центры
+                Центры помощи
               </Button>
             </div>
 

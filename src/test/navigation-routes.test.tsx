@@ -14,7 +14,7 @@ describe("route-based navigation", () => {
 
     expect(screen.getByRole("link", { name: "О себе" })).toHaveAttribute("href", "/about");
     expect(screen.getByRole("link", { name: "Деятельность" })).toHaveAttribute("href", "/activities");
-    expect(screen.getByRole("link", { name: "Рехабы" })).toHaveAttribute("href", "/rehabs");
+    expect(screen.getByRole("link", { name: "Центры помощи" })).toHaveAttribute("href", "/rehabs");
     expect(screen.getByRole("link", { name: "Новости" })).toHaveAttribute("href", "/news");
     expect(screen.getByRole("link", { name: "Контент" })).toHaveAttribute("href", "/content");
     expect(screen.getByRole("link", { name: "Отзывы" })).toHaveAttribute("href", "/testimonials");
@@ -30,7 +30,7 @@ describe("route-based navigation", () => {
 
     expect(screen.getByRole("link", { name: "О себе" })).toHaveAttribute("href", "/about");
     expect(screen.getByRole("link", { name: "Деятельность" })).toHaveAttribute("href", "/activities");
-    expect(screen.getByRole("link", { name: "Рехабы" })).toHaveAttribute("href", "/rehabs");
+    expect(screen.getByRole("link", { name: "Центры помощи" })).toHaveAttribute("href", "/rehabs");
     expect(screen.getByRole("link", { name: "Контакты" })).toHaveAttribute("href", "/contacts");
   });
 
@@ -62,6 +62,16 @@ describe("route-based navigation", () => {
 
     expect(await screen.findByRole("heading", { name: /свяжитесь с нами/i })).toBeInTheDocument();
     expect(screen.getAllByText("+7 916 031 35 55")[0]).toBeInTheDocument();
+  });
+
+  it("renders the centers help page with neutral copy on its dedicated route", async () => {
+    window.history.pushState({}, "", "/rehabs");
+
+    render(<App />);
+
+    expect(await screen.findByRole("heading", { name: /проверенные центры помощи/i })).toBeInTheDocument();
+    expect(screen.getByText(/все центры помощи прошли проверку/i)).toBeInTheDocument();
+    expect(screen.queryByText(/рехабы/i)).not.toBeInTheDocument();
   });
 
   it("shows the official portrait and updated positioning on the homepage", async () => {
