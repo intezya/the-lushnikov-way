@@ -12,15 +12,17 @@ import NewsPage from "./pages/NewsPage";
 import NotFound from "./pages/NotFound.tsx";
 import RehabsPage from "./pages/RehabsPage.tsx";
 import TestimonialsPage from "./pages/TestimonialsPage";
+import { getRouterBase } from "./lib/routerBase";
 
 const queryClient = new QueryClient();
+const routerBase = getRouterBase(import.meta.env.BASE_URL);
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename={routerBase}>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<AboutPage />} />
