@@ -1,4 +1,7 @@
 import { HeartHandshake, ScrollText, ShieldCheck } from 'lucide-react';
+import { getAssetPath } from '@/lib/assetPath';
+
+const blessingLetterSrc = getAssetPath('/homepage/blessing-letter.jpg', import.meta.env.BASE_URL);
 
 const BlessingLetterSection = () => (
   <section id="blessing-letter" className="py-24">
@@ -48,7 +51,7 @@ const BlessingLetterSection = () => (
             <div className="absolute inset-x-10 top-0 h-24 rounded-full bg-primary/10 blur-3xl" />
             <div className="relative rounded-[24px] border border-white/10 bg-background/50 p-3 backdrop-blur-sm">
               <img
-                src="/homepage/blessing-letter.jpg"
+                src={blessingLetterSrc}
                 alt="Письмо благословение с официального сайта Никиты Лушникова"
                 className="h-auto w-full rounded-[18px] object-cover"
               />

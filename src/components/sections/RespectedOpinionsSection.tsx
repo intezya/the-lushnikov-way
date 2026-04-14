@@ -1,31 +1,32 @@
 import { Quote } from 'lucide-react';
+import { getAssetPath } from '@/lib/assetPath';
 
 const respectedOpinions = [
   {
     name: 'Сергей Лавров',
     role: 'Министр иностранных дел Российской Федерации',
-    image: '/homepage/lavrov.png',
+    image: getAssetPath('/homepage/lavrov.png', import.meta.env.BASE_URL),
     quote:
       'Отмечает личную роль Никиты Лушникова в создании и развитии общественной организации, которая не просто сохраняет масштаб, а продолжает эффективно расширять круг сторонников.',
   },
   {
     name: 'Юрий Федотов',
     role: 'Экс-исполнительный директор Управления ООН по наркотикам и преступности',
-    image: '/homepage/fedotov.png',
+    image: getAssetPath('/homepage/fedotov.png', import.meta.env.BASE_URL),
     quote:
       'Подчёркивает, что Национальный антинаркотический союз рассматривается как надёжный партнёр среди неправительственных организаций, работающих в профилактике наркомании и реабилитации.',
   },
   {
     name: 'Фёдор Емельяненко',
     role: 'Спортсмен и общественный деятель',
-    image: '/homepage/emelyanenko.png',
+    image: getAssetPath('/homepage/emelyanenko.png', import.meta.env.BASE_URL),
     quote:
       'Говорит о вкладе Никиты в помощь людям, которым нужны внимание, поддержка, надежда и возвращение к правильным ценностям и здоровому образу жизни.',
   },
   {
     name: 'Леонид Слуцкий',
     role: 'Политик и общественный деятель',
-    image: '/homepage/slutsky.png',
+    image: getAssetPath('/homepage/slutsky.png', import.meta.env.BASE_URL),
     quote:
       'Отмечает организаторский масштаб, международный уровень совместных проектов и высокую личную ответственность в общественно значимых инициативах.',
   },

@@ -1,12 +1,15 @@
 import { ArrowDown, Shield, Users, Globe } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { getAssetPath } from '@/lib/assetPath';
 
 const stats = [
   { icon: Shield, value: 'с 2004', label: 'помогает зависимым возвращаться к трезвой жизни' },
   { icon: Users, value: 'НАС', label: 'экспертный совет и межрегиональная координация программ' },
   { icon: Globe, value: 'ООН', label: 'международное представительство российских практик' },
 ];
+
+const officialPortraitSrc = getAssetPath('/nikita-lushnikov-official.png', import.meta.env.BASE_URL);
 
 const HeroSection = () => {
   const navigate = useNavigate();
@@ -99,7 +102,7 @@ const HeroSection = () => {
                   Официальный портрет
                 </div>
                 <img
-                  src="/nikita-lushnikov-official.png"
+                  src={officialPortraitSrc}
                   alt="Официальный портрет Никиты Лушникова"
                   className="mx-auto h-auto w-full max-w-[420px] object-contain"
                 />
