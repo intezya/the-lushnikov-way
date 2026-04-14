@@ -31,9 +31,9 @@ const Navbar = () => {
         </div>
 
         <div className="hidden lg:flex items-center gap-4">
-          <a href="tel:88001003334" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+          <a href="tel:+79160313555" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
             <Phone className="w-4 h-4" />
-            8-800-100-3334
+            +7 916 031 35 55
           </a>
           <Button asChild size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold">
             <Link to="/contacts">Получить помощь</Link>
@@ -60,9 +60,9 @@ const Navbar = () => {
                 {item.label}
               </NavLink>
             ))}
-            <a href="tel:88001003334" className="flex items-center gap-2 text-sm text-primary py-2">
+            <a href="tel:+79160313555" className="flex items-center gap-2 text-sm text-primary py-2">
               <Phone className="w-4 h-4" />
-              8-800-100-3334
+              +7 916 031 35 55
             </a>
             <Button asChild size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold w-full">
               <Link to="/contacts" onClick={() => setIsOpen(false)}>

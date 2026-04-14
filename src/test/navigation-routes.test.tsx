@@ -51,6 +51,8 @@ describe("route-based navigation", () => {
     render(<App />);
 
     expect(await screen.findByRole("heading", { name: /о никите лушникове/i })).toBeInTheDocument();
+    expect(screen.getByText("2004")).toBeInTheDocument();
+    expect(screen.getByText("2020")).toBeInTheDocument();
   });
 
   it("renders the contacts page on its dedicated route", async () => {
@@ -59,5 +61,19 @@ describe("route-based navigation", () => {
     render(<App />);
 
     expect(await screen.findByRole("heading", { name: /свяжитесь с нами/i })).toBeInTheDocument();
+    expect(screen.getAllByText("+7 916 031 35 55")[0]).toBeInTheDocument();
+  });
+
+  it("shows the official portrait and updated positioning on the homepage", async () => {
+    window.history.pushState({}, "", "/");
+
+    render(<App />);
+
+    expect(await screen.findByAltText(/официальный портрет никиты лушникова/i)).toBeInTheDocument();
+    expect(screen.getByText(/председатель экспертного совета национального антинаркотического союза/i)).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /духовная опора программы/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /публичное доверие к делу/i })).toBeInTheDocument();
+    expect(screen.getByAltText(/письмо благословение с официального сайта никиты лушникова/i)).toBeInTheDocument();
+    expect(screen.queryByText(/навигация по сайту/i)).not.toBeInTheDocument();
   });
 });

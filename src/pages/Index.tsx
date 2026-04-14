@@ -2,7 +2,8 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import HeroSection from '@/components/sections/HeroSection';
-import HomeOverviewSection from '@/components/sections/HomeOverviewSection';
+import BlessingLetterSection from '@/components/sections/BlessingLetterSection';
+import RespectedOpinionsSection from '@/components/sections/RespectedOpinionsSection';
 import RehabsPreviewSection from '@/components/sections/RehabsPreviewSection';
 import ContactSection from '@/components/sections/ContactSection';
 
@@ -14,7 +15,8 @@ const Index = () => {
       <Navbar />
       <main ref={animationRef}>
         <HeroSection />
-        <HomeOverviewSection />
+        <BlessingLetterSection />
+        <RespectedOpinionsSection />
         <RehabsPreviewSection />
         <ContactSection />
       </main>
