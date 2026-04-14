@@ -7,7 +7,6 @@ const respectedOpinions = [
     image: '/homepage/lavrov.png',
     quote:
       'Отмечает личную роль Никиты Лушникова в создании и развитии общественной организации, которая не просто сохраняет масштаб, а продолжает эффективно расширять круг сторонников.',
-    featured: true,
   },
   {
     name: 'Юрий Федотов',
@@ -32,6 +31,8 @@ const respectedOpinions = [
   },
 ];
 
+const cardGridClass = 'grid h-full md:grid-cols-[280px_minmax(0,1fr)]';
+
 const RespectedOpinionsSection = () => (
   <section id="respected-opinions" className="py-24">
     <div className="container mx-auto px-4">
@@ -54,11 +55,7 @@ const RespectedOpinionsSection = () => (
               key={opinion.name}
               className="overflow-hidden rounded-[30px] border border-border/80 bg-card/75"
             >
-              <div
-                className={`grid h-full ${
-                  opinion.featured ? 'lg:grid-cols-[280px_minmax(0,1fr)]' : 'md:grid-cols-[220px_minmax(0,1fr)]'
-                }`}
-              >
+              <div className={cardGridClass}>
                 <div className="relative min-h-[260px] overflow-hidden bg-secondary/70">
                   <div className="absolute inset-x-10 top-6 h-24 rounded-full bg-primary/10 blur-3xl" />
                   <img
