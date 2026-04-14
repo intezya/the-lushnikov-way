@@ -1,4 +1,10 @@
 import { Link } from 'react-router-dom';
+import { NavLink } from '@/components/NavLink';
+import { primaryNavItems } from '@/config/navigation';
+
+const footerNavItems = primaryNavItems.filter((item) =>
+  ['/about', '/activities', '/rehabs', '/contacts'].includes(item.path),
+);
 
 const Footer = () => (
   <footer className="py-12 border-t border-border bg-background">
@@ -13,10 +19,11 @@ const Footer = () => (
         </div>
 
         <div className="flex items-center gap-6 text-sm text-muted-foreground">
-          <a href="#about" className="hover:text-primary transition-colors">О себе</a>
-          <a href="#activities" className="hover:text-primary transition-colors">Деятельность</a>
-          <Link to="/rehabs" className="hover:text-primary transition-colors">Рехабы</Link>
-          <a href="#contacts" className="hover:text-primary transition-colors">Контакты</a>
+          {footerNavItems.map((item) => (
+            <NavLink key={item.path} to={item.path} end className="hover:text-primary transition-colors" activeClassName="text-primary">
+              {item.label}
+            </NavLink>
+          ))}
         </div>
 
         <p className="text-muted-foreground text-xs">© 2013–2026 Никита Лушников. Все права защищены.</p>

@@ -2,25 +2,11 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
-const navItems = [
-  { label: 'О себе', href: '#about' },
-  { label: 'Деятельность', href: '#activities' },
-  { label: 'Рехабы', href: '#rehabs' },
-  { label: 'Новости', href: '#news' },
-  { label: 'Контент', href: '#content' },
-  { label: 'Отзывы', href: '#testimonials' },
-  { label: 'Контакты', href: '#contacts' },
-];
+import { NavLink } from '@/components/NavLink';
+import { primaryNavItems } from '@/config/navigation';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const scrollTo = (href: string) => {
-    setIsOpen(false);
-    const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
@@ -31,14 +17,16 @@ const Navbar = () => {
         </Link>
 
         <div className="hidden lg:flex items-center gap-6">
-          {navItems.map((item) => (
-            <button
-              key={item.href}
-              onClick={() => scrollTo(item.href)}
-              className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300"
+          {primaryNavItems.map((item) => (
+            <NavLink
+              key={item.path}
+              to={item.path}
+              end
+              className="rounded-full border border-transparent px-3 py-2 text-sm text-muted-foreground transition-all duration-300 hover:border-primary/15 hover:bg-primary/5 hover:text-primary"
+              activeClassName="border-primary/25 bg-primary/10 text-primary shadow-[0_0_0_1px_rgba(201,168,76,0.08)]"
             >
               {item.label}
-            </button>
+            </NavLink>
           ))}
         </div>
 
@@ -47,12 +35,8 @@ const Navbar = () => {
             <Phone className="w-4 h-4" />
             8-800-100-3334
           </a>
-          <Button
-            size="sm"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold"
-            onClick={() => scrollTo('#contacts')}
-          >
-            Получить помощь
+          <Button asChild size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold">
+            <Link to="/contacts">Получить помощь</Link>
           </Button>
         </div>
 
@@ -64,25 +48,26 @@ const Navbar = () => {
       {isOpen && (
         <div className="lg:hidden bg-background/95 backdrop-blur-xl border-b border-border">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-3">
-            {navItems.map((item) => (
-              <button
-                key={item.href}
-                onClick={() => scrollTo(item.href)}
-                className="text-left text-sm text-muted-foreground hover:text-primary transition-colors py-2"
+            {primaryNavItems.map((item) => (
+              <NavLink
+                key={item.path}
+                to={item.path}
+                end
+                onClick={() => setIsOpen(false)}
+                className="rounded-xl border border-transparent px-3 py-2 text-left text-sm text-muted-foreground transition-all hover:border-primary/15 hover:bg-primary/5 hover:text-primary"
+                activeClassName="border-primary/25 bg-primary/10 text-primary"
               >
                 {item.label}
-              </button>
+              </NavLink>
             ))}
             <a href="tel:88001003334" className="flex items-center gap-2 text-sm text-primary py-2">
               <Phone className="w-4 h-4" />
               8-800-100-3334
             </a>
-            <Button
-              size="sm"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold w-full"
-              onClick={() => scrollTo('#contacts')}
-            >
-              Получить помощь
+            <Button asChild size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold w-full">
+              <Link to="/contacts" onClick={() => setIsOpen(false)}>
+                Получить помощь
+              </Link>
             </Button>
           </div>
         </div>

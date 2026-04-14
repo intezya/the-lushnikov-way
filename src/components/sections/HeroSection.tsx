@@ -1,4 +1,5 @@
 import { ArrowDown, Shield, Users, Globe } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
 const stats = [
@@ -8,6 +9,8 @@ const stats = [
 ];
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+
   const scrollTo = (id: string) => {
     document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -41,7 +44,7 @@ const HeroSection = () => {
           <Button
             size="lg"
             className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold text-base px-8"
-            onClick={() => scrollTo('#contacts')}
+            onClick={() => navigate('/contacts')}
           >
             Получить консультацию
           </Button>
@@ -49,7 +52,7 @@ const HeroSection = () => {
             variant="outline"
             size="lg"
             className="border-primary/30 text-foreground hover:bg-primary/10 font-semibold text-base px-8"
-            onClick={() => scrollTo('#rehabs')}
+            onClick={() => navigate('/rehabs')}
           >
             Проверенные центры
           </Button>
@@ -66,7 +69,7 @@ const HeroSection = () => {
         </div>
 
         <button
-          onClick={() => scrollTo('#about')}
+          onClick={() => scrollTo('#discover')}
           className="mt-16 animate-bounce text-muted-foreground hover:text-primary transition-colors"
         >
           <ArrowDown className="w-6 h-6" />
